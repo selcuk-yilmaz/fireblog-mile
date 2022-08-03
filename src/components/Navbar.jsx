@@ -84,6 +84,22 @@ export default function MenuAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             FİREBLOG
           </Typography>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              cursor: "pointer",
+              fontFamily: "Girassol",
+              textAlign: "center",
+            }}
+          >
+            ────
+            <span style={{ fontSize: "2rem", color: "#F5DEB3" }}>
+              {"<Allan Iverson/>"}
+            </span>
+            Blog ────
+          </Typography>
           {auth && (
             <div>
               <Typography variant="h6" component="span" sx={{ flexGrow: 1 }}>

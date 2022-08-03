@@ -28,6 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
+//! below is authentication
 const auth = getAuth(app);
 
 export const createUser = async (email, password, navigate, displayName) => {
