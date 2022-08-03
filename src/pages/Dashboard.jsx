@@ -23,13 +23,13 @@ const Dashboard = () => {
           fontFamily: "Girassol",
           textAlign: "center",
           color: "white",
-          fontSize: "4rem",
-          border: "3px",
+          fontSize: "5rem",
+          lineHeight: "center",
         }}
       >
-        ────
+        ——
         <span style={{ fontSize: "2rem", color: "#046582" }}>DASHBOARD</span>
-        ────
+        ——
       </Typography>
 
       <Container>

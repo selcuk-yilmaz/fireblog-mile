@@ -81,12 +81,18 @@ export default function MenuAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            FİREBLOG
+          <Typography
+            onClick={() => navigate("/")}
+            variant="h6"
+            component="div"
+            sx={{ cursor: "pointer", flexGrow: 1 }}
+          >
+            <span>FİREBLOG</span>
           </Typography>
           <Typography
             variant="h6"
             component="div"
+            onClick={() => navigate("/")}
             sx={{
               flexGrow: 1,
               cursor: "pointer",
