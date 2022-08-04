@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { createBlog } from "../helpers/crud";
+import { createBlog, useData } from "../helpers/crud";
 // const initialValues = {
 //   imageUrl: "",
 //   title: "",
@@ -16,7 +16,7 @@ const BlogContextProvider = (props) => {
   // setInfo(initialValues);
 
   return (
-    <BlogContext.Provider value={{ createBlog, info, setInfo }}>
+    <BlogContext.Provider value={{ createBlog, info, setInfo, useData }}>
       {props.children}
     </BlogContext.Provider>
   );

@@ -64,7 +64,6 @@ export const login = async (email, password, navigate) => {
 };
 
 export const userObserver = (setAuth) => {
-  //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setAuth(user);
@@ -78,7 +77,6 @@ export const userObserver = (setAuth) => {
 export const logOut = () => {
   signOut(auth);
 };
-
 
 export const signUpProvider = (navigate) => {
   //? Google ile giriş yapılması için kullanılan firebase metodu

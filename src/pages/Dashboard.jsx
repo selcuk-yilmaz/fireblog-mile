@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
-import BlogCard from "../components/BlogCard";
 import { Container, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
+
 import { useData } from "../helpers/crud";
+import spinner from "../assets/spinner.gif";
+import React, { useEffect, useState } from "react";
+import BlogCard from "../components/BlogCard";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const { users } = useData();
-  console.log(users);
+  const navigate = useNavigate();
+  // console.log(users);
   useEffect(() => {
     setLoading(false);
-  }, [users]);
-  console.log(loading);
+  }, []);
+  // console.log(loading);
+
   return (
     <>
       <Typography
@@ -35,12 +40,20 @@ const Dashboard = () => {
       <Container>
         <Grid container justifyContent="center" spacing={4} sx={{ mt: 1 }}>
           {loading ? (
-            <h1>loading...</h1>
+            <h1>{spinner}</h1>
           ) : (
-            users?.map((user, index) => {
+            users?.map((user) => {
+              const { id } = user;
               return (
-                <Grid item>
-                  <BlogCard key={index} user={user} />
+                <Grid
+                  onClick={() =>
+                    navigate("details", { state: user, replace: false })
+                  }
+                  style={{ cursor: "pointer" }}
+                  key={id}
+                  item
+                >
+                  <BlogCard user={user} />
                 </Grid>
               );
             })
