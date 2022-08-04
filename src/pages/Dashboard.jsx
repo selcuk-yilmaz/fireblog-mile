@@ -2,19 +2,18 @@ import { Container, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import { useData } from "../helpers/crud";
-import spinner from "../assets/spinner.gif";
-import React, { useEffect, useState } from "react";
+import loadingSpinner from "../assets/loading.gif";
+import React, { useContext, useEffect, useState } from "react";
 import BlogCard from "../components/BlogCard";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Dashboard = () => {
-  const [loading, setLoading] = useState(true);
+  const { loading } = useContext(AuthContext);
   const { users } = useData();
   const navigate = useNavigate();
   // console.log(users);
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+
   // console.log(loading);
 
   return (
@@ -36,13 +35,14 @@ const Dashboard = () => {
         <span style={{ fontSize: "2rem", color: "#046582" }}>DASHBOARD</span>
         ——
       </Typography>
-
-      <Container>
-        <Grid container justifyContent="center" spacing={4} sx={{ mt: 1 }}>
-          {loading ? (
-            <h1>{spinner}</h1>
-          ) : (
-            users?.map((user) => {
+      {loading ? (
+        <Container>
+          <img src={loadingSpinner} alt="" />
+        </Container>
+      ) : (
+        <Container>
+          <Grid container justifyContent="center" spacing={4} sx={{ mt: 1 }}>
+            {users?.map((user) => {
               const { id } = user;
               return (
                 <Grid
@@ -56,10 +56,10 @@ const Dashboard = () => {
                   <BlogCard user={user} />
                 </Grid>
               );
-            })
-          )}
-        </Grid>
-      </Container>
+            })}
+          </Grid>
+        </Container>
+      )}
     </>
   );
 };

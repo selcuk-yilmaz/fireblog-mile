@@ -11,6 +11,7 @@ import blok from "../assets/blok.png";
 import { useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 const inputValues = {
@@ -20,6 +21,7 @@ const inputValues = {
 };
 
 export default function NewBlog() {
+  const navigate = useNavigate();
   const { createBlog, info, setInfo } = useContext(BlogContext);
   const { auth } = useContext(AuthContext);
   const [inputVal, setInputVal] = React.useState(inputValues);
@@ -43,6 +45,7 @@ export default function NewBlog() {
     e.preventDefault();
     createBlog(info);
     setInputVal(inputValues);
+    navigate("/");
   };
   return (
     <div

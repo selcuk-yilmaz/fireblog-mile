@@ -37,20 +37,20 @@ export default function RecipeReviewCard() {
   return (
     <Container>
       <Grid container justifyContent="center" spacing={4} sx={{ mt: 3 }}>
-        <Card sx={{ m: "auto", textAlign: "center", width: 600, height: 600 }}>
+        <Card sx={{ m: "auto", textAlign: "center", width: 600 }}>
           <CardMedia
             component="img"
-            height="300"
+            // height="300"
             image={part.imageUrl}
             alt="Paella dish"
           />
           <CardContent>
-            <Typography height={125} variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary">
               {part.content}
             </Typography>
           </CardContent>
           <CardContent>
-            <Typography height={50} variant="h6" color="text.secondary">
+            <Typography variant="h6" color="text.secondary">
               <AccountCircleIcon /> {part.email}
               {part.date}
             </Typography>

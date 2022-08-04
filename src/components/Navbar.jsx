@@ -21,7 +21,7 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const { auth, setAuth } = React.useContext(AuthContext);
-
+  console.log(auth);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
