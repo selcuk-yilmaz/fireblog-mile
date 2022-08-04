@@ -1,46 +1,43 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Container, Grid } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Button, Container, Grid } from "@mui/material";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
+import { AuthContext } from "../contexts/AuthContext";
 // import { BlogContext } from "../contexts/BlogContext";
 
 export default function RecipeReviewCard() {
-  const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-  const { id } = useParams();
+  const { auth } = React.useContext(AuthContext);
+  // const { id } = useParams();
   // const { useData } = React.useContext(BlogContext);
   const location = useLocation();
   const part = location.state;
-  console.log(part);
-  // console.log(id);
+  // console.log(part);
+  console.log(auth.providerData[0].email);
   return (
     <Container>
-      <Grid container justifyContent="center" spacing={4} sx={{ mt: 3 }}>
+      <Grid
+        container
+        flexDirection="column"
+        justifyContent="center"
+        alignItem="center"
+        spacing={4}
+        sx={{ mt: 3 }}
+      >
         <Card sx={{ m: "auto", textAlign: "center", width: 600 }}>
           <CardMedia
             component="img"
-            // height="300"
+            height="300"
             image={part.imageUrl}
             alt="Paella dish"
           />
@@ -67,6 +64,16 @@ export default function RecipeReviewCard() {
             </IconButton>
           </CardActions>
         </Card>
+        {auth.providerData[0].email === part.email && (
+          <CardActions sx={{ m: "auto" }}>
+            <IconButton aria-label="add to favorites">
+              <Button variant="contained">UPDATE</Button>
+            </IconButton>
+            <IconButton aria-label="share">
+              <Button variant="outlined">DELETE</Button>
+            </IconButton>
+          </CardActions>
+        )}
       </Grid>
     </Container>
   );
