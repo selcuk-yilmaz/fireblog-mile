@@ -6,34 +6,49 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import { CardHeader } from "@mui/material";
+import { Button, CardHeader } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import { useNavigate } from "react-router-dom";
 
 export default function RecipeReviewCard({ user }) {
   const { content, date, email, id, title, imageUrl } = user;
+  const navigate = useNavigate();
+
   return (
-    <Card sx={{ width: "500px", height: "450px" }}>
+    <Card sx={{ width: "500px", height: "500px" }}>
       <CardMedia component="img" height="194" image={imageUrl} alt={title} />
-      <CardContent>
+      <CardContent sx={{ backgroundColor: "#E7E6F5" }}>
         <CardHeader title={title} subheader={date} />
         <Typography
-          sx={{ overflow: "hidden", height: "40px" }}
+          sx={{
+            overflow: "hidden",
+            height: "40px",
+          }}
           variant="body2"
           color="text.secondary"
         >
           {content}
         </Typography>
+      </CardContent>
+      <CardContent>
         <AccountCircleIcon />
         <span>{email}</span>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions sx={{ position: "relative" }} disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <ChatBubbleOutlineIcon />
         </IconButton>
+        <Button
+          onClick={() => navigate(`${id}`)}
+          sx={{ left: "250px" }}
+          variant="outlined"
+        >
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );
