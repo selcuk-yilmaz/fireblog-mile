@@ -24,7 +24,7 @@ export default function UpdateBlog() {
 
   const location = useLocation();
   const partUpdate = location.state;
-  // console.log(partUpdate);
+  console.log(partUpdate);
   const [resource, setResource] = React.useState(partUpdate?.imageUrl);
   const [title, setTitle] = React.useState(partUpdate?.title);
   const [content, setContent] = React.useState(partUpdate?.content);
@@ -37,7 +37,7 @@ export default function UpdateBlog() {
         imageUrl: resource,
         title: title,
         content: content,
-        email: auth?.email,
+        email: partUpdate.email,
         date: new Date().toLocaleString("tr-TR"),
       });
       console.log("güncellendi");

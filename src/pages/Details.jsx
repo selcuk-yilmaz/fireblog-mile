@@ -29,7 +29,8 @@ export default function RecipeReviewCard() {
 
   // const { setFlag } = React.useContext(BlogContext);
   const handleUpdate = () => {
-    navigate("updateBlog", { state: part });
+    // navigate("updateBlog", { state: part });
+    navigate("newb", { state: part });
     // setFlag(false);
   };
   //!below for delete data
