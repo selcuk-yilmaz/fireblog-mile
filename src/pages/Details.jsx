@@ -13,17 +13,32 @@ import { Button, Container, Grid } from "@mui/material";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 import { AuthContext } from "../contexts/AuthContext";
-// import { BlogContext } from "../contexts/BlogContext";
+import { BlogContext } from "../contexts/BlogContext";
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from "../helpers/firebaseConfig";
 
 export default function RecipeReviewCard() {
   const navigate = useNavigate();
   const { auth } = React.useContext(AuthContext);
   // const { id } = useParams();
-  // const { useData } = React.useContext(BlogContext);
+  //! below prepare for update data
   const location = useLocation();
   const part = location.state;
   // console.log(part);
   console.log(auth.providerData[0].email);
+
+  const { setFlag } = React.useContext(BlogContext);
+  const handleUpdate = () => {
+    navigate("/newBlog", { state: part });
+    setFlag(false);
+  };
+  //!below for delete data
+  const handleDelete = async (id) => {
+    const userDoc = doc(db, "users", id);
+    await deleteDoc(userDoc);
+    navigate("/");
+  };
+  console.log(part.id);
   return (
     <Container>
       <Grid
@@ -67,10 +82,14 @@ export default function RecipeReviewCard() {
         {auth.providerData[0].email === part.email && (
           <CardActions sx={{ m: "auto" }}>
             <IconButton aria-label="add to favorites">
-              <Button variant="contained">UPDATE</Button>
+              <Button onClick={handleUpdate} variant="contained">
+                UPDATE
+              </Button>
             </IconButton>
             <IconButton aria-label="share">
-              <Button variant="outlined">DELETE</Button>
+              <Button onClick={() => handleDelete(part.id)} variant="outlined">
+                DELETE
+              </Button>
             </IconButton>
           </CardActions>
         )}

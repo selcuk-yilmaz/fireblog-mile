@@ -12,11 +12,14 @@ export const BlogContext = createContext();
 
 const BlogContextProvider = (props) => {
   const [info, setInfo] = useState([]);
+  const [flag, setFlag] = useState(true);
   // createBlog(info);
   // setInfo(initialValues);
 
   return (
-    <BlogContext.Provider value={{ createBlog, info, setInfo, useData }}>
+    <BlogContext.Provider
+      value={{ createBlog, info, setInfo, useData, flag, setFlag }}
+    >
       {props.children}
     </BlogContext.Provider>
   );
