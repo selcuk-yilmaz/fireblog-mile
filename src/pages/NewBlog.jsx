@@ -11,9 +11,8 @@ import blok from "../assets/blok.png";
 import { useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
 import { AuthContext } from "../contexts/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
-import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../helpers/firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import { IconButton } from "@mui/material";
 
 const theme = createTheme();
 const inputValues = {
@@ -24,7 +23,7 @@ const inputValues = {
 
 export default function NewBlog() {
   const navigate = useNavigate();
-  const { createBlog, info, setInfo, flag, setFlag } = useContext(BlogContext);
+  const { createBlog, info, setInfo } = useContext(BlogContext);
   const { auth } = useContext(AuthContext);
   const [inputVal, setInputVal] = React.useState(inputValues);
   const email = "email";
@@ -50,269 +49,124 @@ export default function NewBlog() {
     setInputVal(inputValues);
     navigate("/");
   };
-  //!below start update processes
-  const location = useLocation();
-  const partUpdate = location.state;
-  // console.log(partUpdate);
-  const [resource, setResource] = React.useState(partUpdate);
-  const [title, setTitle] = React.useState(partUpdate);
-  const [content, setContent] = React.useState(partUpdate);
 
-  console.log(flag);
-  const handleFormUpdateReset = async (id) => {
-    const userDoc = doc(db, "users", id);
-    const newFields = {
-      imageUrl: resource,
-      title: title,
-      content: content,
-      [email]: auth?.email,
-      [date]: new Date().toLocaleString("tr-TR"),
-    };
-    await updateDoc(userDoc, newFields);
-    setFlag(true);
-    navigate("/");
-  };
   return (
     <>
-      {flag ? (
+      <div
+        style={{
+          backgroundImage: "url(https://source.unsplash.com/random)",
+          backgroundRepeat: "no-repeat",
+          // backgroundColor: (t) =>
+          //   t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          height: "89vh",
+        }}
+      >
         <div
           style={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
-            // backgroundColor: (t) =>
-            //   t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            height: "89vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "90vh",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "90vh",
-            }}
-          >
-            <ThemeProvider theme={theme}>
-              <Container component="main" maxWidth="xs">
-                <CssBaseline />
+          <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="xs">
+              <CssBaseline />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "bisque",
+                  borderRadius: "10px",
+                  padding: "20px",
+                }}
+              >
                 <Box
+                  component="form"
+                  /* onSubmit={(e)=>handleFormSubmit(e)} */ noValidate
                   sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "bisque",
-                    borderRadius: "10px",
-                    padding: "20px",
+                    mt: 1,
                   }}
                 >
-                  <Box
-                    component="form"
-                    /* onSubmit={(e)=>handleFormSubmit(e)} */ noValidate
+                  <Typography
+                    component="h1"
+                    variant="h5"
                     sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mt: 1,
+                      // color: "darkslategray",
+
+                      fontFamily: "fantasy",
+                      marginTop: "5px",
                     }}
                   >
-                    <Typography
-                      component="h1"
-                      variant="h5"
-                      sx={{
-                        // color: "darkslategray",
+                    <img src={blok} alt="blok" />
+                  </Typography>
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="imageUrl"
+                    label="Image URL"
+                    type="url"
+                    id="imageUrl"
+                    onChange={handleChange}
+                    color="success"
+                    value={inputVal.imageUrl}
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="title"
+                    label="Title"
+                    name="title"
+                    autoComplete="title"
+                    autoFocus
+                    onChange={handleChange}
+                    color="success"
+                    value={inputVal.title}
+                  />
 
-                        fontFamily: "fantasy",
-                        marginTop: "5px",
-                      }}
-                    >
-                      <img src={blok} alt="blok" />
-                    </Typography>
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="imageUrl"
-                      label="Image URL"
-                      type="url"
-                      id="imageUrl"
-                      onChange={handleChange}
-                      color="success"
-                      value={inputVal.imageUrl}
-                    />
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="title"
-                      label="Title"
-                      name="title"
-                      autoComplete="title"
-                      autoFocus
-                      onChange={handleChange}
-                      color="success"
-                      value={inputVal.title}
-                    />
+                  <TextField
+                    placeholder="Content"
+                    multiline
+                    rows={4}
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="content"
+                    label="Content"
+                    id="content"
+                    onChange={handleChange}
+                    sx={{}}
+                    color="success"
+                    value={inputVal.content}
+                  />
 
-                    <TextField
-                      placeholder="Content"
-                      multiline
-                      rows={4}
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="content"
-                      label="Content"
-                      id="content"
-                      onChange={handleChange}
-                      sx={{}}
-                      color="success"
-                      value={inputVal.content}
-                    />
-
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      sx={{ mt: 3, mb: 2, backgroundColor: "darkslategrey" }}
-                      onClick={(e) => handleFormReset(e)}
-                    >
-                      Add Blog
-                    </Button>
-                  </Box>
-                </Box>
-              </Container>
-            </ThemeProvider>
-          </div>
-        </div>
-      ) : (
-        <div
-          style={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
-            // backgroundColor: (t) =>
-            //   t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            height: "89vh",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "90vh",
-            }}
-          >
-            <ThemeProvider theme={theme}>
-              <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: "bisque",
-                    borderRadius: "10px",
-                    padding: "20px",
-                  }}
-                >
-                  <Box
-                    component="form"
-                    /* onSubmit={(e)=>handleFormSubmit(e)} */ noValidate
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mt: 1,
-                    }}
+                  <IconButton
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, backgroundColor: "darkslategrey" }}
+                    onClick={(e) => handleFormReset(e)}
                   >
-                    <Typography
-                      component="h1"
-                      variant="h5"
-                      sx={{
-                        // color: "darkslategray",
-
-                        fontFamily: "fantasy",
-                        marginTop: "5px",
-                      }}
-                    >
-                      <img src={blok} alt="blok" />
-                    </Typography>
-
-                    <TextField
-                      type="text"
-                      autoFocus
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="imageUrl"
-                      label="Image URL"
-                      id="imageUrl"
-                      onChange={(e) => setResource(e.target.value)}
-                      color="success"
-                      value={partUpdate.imageUrl}
-                    />
-                    <TextField
-                      type="text"
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="title"
-                      label="Title"
-                      name="title"
-                      autoComplete="title"
-                      onChange={(e) => setTitle(e.target.value)}
-                      color="success"
-                      value={partUpdate.title}
-                    />
-
-                    <TextField
-                      type="text"
-                      placeholder="Content"
-                      multiline
-                      rows={4}
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="content"
-                      label="Content"
-                      id="content"
-                      onChange={(e) => setContent(e.target.value)}
-                      sx={{}}
-                      color="success"
-                      value={partUpdate.content}
-                    />
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      sx={{
-                        mt: 3,
-                        mb: 2,
-                        backgroundColor: "darkslategrey",
-                      }}
-                      onClick={() => handleFormUpdateReset(partUpdate.id)}
-                    >
-                      Update Blog
-                    </Button>
-                  </Box>
+                    Add Blog
+                  </IconButton>
                 </Box>
-              </Container>
-            </ThemeProvider>
-          </div>
+              </Box>
+            </Container>
+          </ThemeProvider>
         </div>
-      )}
+      </div>
     </>
   );
 }

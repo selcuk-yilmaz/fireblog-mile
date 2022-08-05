@@ -27,17 +27,19 @@ const Dashboard = () => {
           fontFamily: "Girassol",
           textAlign: "center",
           color: "white",
-          fontSize: "5rem",
-          lineHeight: "center",
+          fontSize: "3rem",
         }}
       >
-        ——
+        ────
         <span style={{ fontSize: "2rem", color: "#046582" }}>DASHBOARD</span>
-        ——
+        ────
       </Typography>
+
       {loading ? (
         <Container>
-          <img src={loadingSpinner} alt="" />
+          <Grid container justifyContent="center" spacing={4} sx={{ mt: 1 }}>
+            <img src={loadingSpinner} alt="" />
+          </Grid>
         </Container>
       ) : (
         <Container>

@@ -13,7 +13,7 @@ import { Button, Container, Grid } from "@mui/material";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 import { AuthContext } from "../contexts/AuthContext";
-import { BlogContext } from "../contexts/BlogContext";
+// import { BlogContext } from "../contexts/BlogContext";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../helpers/firebaseConfig";
 
@@ -27,10 +27,10 @@ export default function RecipeReviewCard() {
   // console.log(part);
   console.log(auth.providerData[0].email);
 
-  const { setFlag } = React.useContext(BlogContext);
+  // const { setFlag } = React.useContext(BlogContext);
   const handleUpdate = () => {
-    navigate("/newBlog", { state: part });
-    setFlag(false);
+    navigate("updateBlog", { state: part });
+    // setFlag(false);
   };
   //!below for delete data
   const handleDelete = async (id) => {

@@ -21,7 +21,7 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const { auth, setAuth } = React.useContext(AuthContext);
-  console.log(auth);
+  // console.log(auth);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -58,7 +58,7 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
+      {/* <FormGroup>
         <FormControlLabel
           control={
             <Switch
@@ -69,7 +69,7 @@ export default function MenuAppBar() {
           }
           label={auth ? "Logout" : "Login"}
         />
-      </FormGroup>
+      </FormGroup> */}
       <AppBar position="static">
         <Toolbar>
           {/* <IconButton
@@ -91,13 +91,13 @@ export default function MenuAppBar() {
           </Typography>
           <Typography
             variant="h6"
-            component="div"
+            component="span"
             onClick={() => navigate("/")}
             sx={{
               flexGrow: 1,
               cursor: "pointer",
               fontFamily: "Girassol",
-              textAlign: "center",
+              // border: 2,
             }}
           >
             ────
