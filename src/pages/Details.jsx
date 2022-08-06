@@ -13,19 +13,17 @@ import { Button, Container, Grid } from "@mui/material";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 import { AuthContext } from "../contexts/AuthContext";
-// import { BlogContext } from "../contexts/BlogContext";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../helpers/firebaseConfig";
 
 export default function RecipeReviewCard() {
   const navigate = useNavigate();
   const { auth } = React.useContext(AuthContext);
-  // const { id } = useParams();
+
   //! below prepare for update data
   const location = useLocation();
   const part = location.state;
-  // console.log(part);
-  console.log(auth.providerData[0].email);
+  // console.log(auth.providerData[0].email);
 
   // const { setFlag } = React.useContext(BlogContext);
   const handleUpdate = () => {

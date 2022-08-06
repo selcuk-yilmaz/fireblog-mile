@@ -3,15 +3,15 @@ import Typography from "@mui/material/Typography";
 
 import { useData } from "../helpers/crud";
 import loadingSpinner from "../assets/loading.gif";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import BlogCard from "../components/BlogCard";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Dashboard = () => {
   const { loading } = useContext(AuthContext);
   const { users } = useData();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // console.log(users);
 
   // console.log(loading);
@@ -48,10 +48,10 @@ const Dashboard = () => {
               const { id } = user;
               return (
                 <Grid
-                  onClick={() =>
-                    navigate("details", { state: user, replace: false })
-                  }
-                  style={{ cursor: "pointer" }}
+                  // onClick={() =>
+                  //   navigate("details", { state: user, replace: false })
+                  // }
+                  // style={{ cursor: "pointer" }}
                   key={id}
                   item
                 >

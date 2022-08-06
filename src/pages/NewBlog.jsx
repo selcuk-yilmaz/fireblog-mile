@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -61,7 +60,7 @@ export default function NewBlog() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          height: "89vh",
+          height: "100vh",
         }}
       >
         <div
@@ -70,7 +69,7 @@ export default function NewBlog() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            height: "90vh",
+            // height: "90vh",
           }}
         >
           <ThemeProvider theme={theme}>

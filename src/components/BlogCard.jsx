@@ -9,12 +9,15 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Button, CardHeader } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-// import { useNavigate } from "react-router-dom";
+// import { BlogContext } from "../contexts/BlogContext";
+import { useNavigate } from "react-router-dom";
 
 export default function RecipeReviewCard({ user }) {
-  const { content, date, email, id, title, imageUrl } = user;
-  // const navigate = useNavigate();
+  const { content, date, email, title, imageUrl } = user;
+  // const { flag, setFlag } = React.useContext(BlogContext);
+  const navigate = useNavigate();
   // console.log(user);
+
   return (
     <Card sx={{ width: "500px", height: "500px" }}>
       <CardMedia component="img" height="194" image={imageUrl} alt={title} />
@@ -37,13 +40,16 @@ export default function RecipeReviewCard({ user }) {
       </CardContent>
       <CardActions sx={{ position: "relative" }} disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon
+          // onClick={() => setFlag(!flag)}
+          // sx={{ color: flag ? "red" : "lightgray" }}
+          />
         </IconButton>
         <IconButton aria-label="share">
           <ChatBubbleOutlineIcon />
         </IconButton>
         <Button
-          // onClick={() => navigate(`${id}`, { state: user })}
+          onClick={() => navigate("details", { state: user, replace: false })}
           sx={{ left: "250px" }}
           variant="outlined"
         >

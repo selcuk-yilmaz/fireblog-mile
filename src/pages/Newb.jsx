@@ -13,7 +13,7 @@ const Newb = () => {
   const [image, setImage] = useState(partUpdate.imageUrl);
   const [title, setTitle] = useState(partUpdate.title);
   const [content, setContent] = useState(partUpdate.content);
-  console.log(partUpdate);
+  // console.log(partUpdate);
   const handleFormUpdateReset = async (e) => {
     e.preventDefault();
     const userDoc = doc(db, "users", partUpdate.id);
@@ -33,16 +33,14 @@ const Newb = () => {
   };
 
   return (
-    <Container>
-      <Box>
-        {" "}
+    <Container maxWidth="xs">
+      <Box backgroundColor="lightgray">
         <form onSubmit={handleFormUpdateReset}>
           <Typography
             component="h1"
             variant="h5"
             sx={{
-              // color: "darkslategray",
-
+              textAlign: "center",
               fontFamily: "fantasy",
               marginTop: "5px",
             }}
@@ -92,13 +90,17 @@ const Newb = () => {
             value={content}
           />
           <Button
+            // textAlign="center"
             type="submit"
             fullWidth
             variant="contained"
             sx={{
+              width: 200,
+              height: 50,
               mt: 3,
               mb: 2,
               backgroundColor: "darkslategrey",
+              ml: 10,
             }}
           >
             Update Blog

@@ -12,7 +12,7 @@ export const BlogContext = createContext();
 
 const BlogContextProvider = (props) => {
   const [info, setInfo] = useState([]);
-  const [flag, setFlag] = useState(true);
+  const [flag, setFlag] = useState(false);
   // createBlog(info);
   // setInfo(initialValues);
 
