@@ -16,7 +16,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const displayName = `${fullName}`;
+    // const displayName = `${fullName}`;
     createUser(email, password, navigate, fullName);
   };
 

@@ -13,7 +13,7 @@ import Details from "../pages/Details";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 import Register from "../pages/Register";
-import UpdateBlog from "../pages/UpdateBlog";
+// import UpdateBlog from "../pages/UpdateBlog";
 
 import { AuthContext } from "../contexts/AuthContext";
 import Newb from "../pages/Newb";
@@ -39,7 +39,7 @@ const AppRouter = () => {
             <Route path="" element={<Details />} />
           </Route>
           <Route path="profile" element={<Profile />} />
-          <Route path="details/updateBlog" element={<UpdateBlog />} />
+          {/* <Route path="details/updateBlog" element={<UpdateBlog />} /> */}
         </Routes>
       </BrowserRouter>
     </>
