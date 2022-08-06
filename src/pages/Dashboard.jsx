@@ -26,7 +26,7 @@ const Dashboard = () => {
           cursor: "pointer",
           fontFamily: "Girassol",
           textAlign: "center",
-          color: "white",
+          color: "#003547",
           fontSize: "3rem",
         }}
       >
