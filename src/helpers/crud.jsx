@@ -27,8 +27,9 @@ export const useData = () => {
       const data = await getDocs(usersCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setLoading(false);
+      console.log("merhaba");
     };
     getUsers();
-  }, []);
+  }, [setLoading]);
   return { users };
 };

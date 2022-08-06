@@ -44,7 +44,7 @@ export default function RecipeReviewCard() {
         container
         flexDirection="column"
         justifyContent="center"
-        alignItem="center"
+        alignItems="center"
         spacing={4}
         sx={{ mt: 3 }}
       >

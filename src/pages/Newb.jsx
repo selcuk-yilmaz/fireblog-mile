@@ -52,7 +52,6 @@ const Newb = () => {
             autoFocus
             margin="normal"
             required
-            fullWidth
             name="imageUrl"
             label="Image URL"
             id="imageUrl"
@@ -64,7 +63,6 @@ const Newb = () => {
             type="text"
             margin="normal"
             required
-            fullWidth
             id="title"
             label="Title"
             name="title"
@@ -80,7 +78,6 @@ const Newb = () => {
             rows={4}
             margin="normal"
             required
-            fullWidth
             name="content"
             label="Content"
             id="content"
@@ -92,7 +89,6 @@ const Newb = () => {
           <Button
             // textAlign="center"
             type="submit"
-            fullWidth
             variant="contained"
             sx={{
               width: 200,
