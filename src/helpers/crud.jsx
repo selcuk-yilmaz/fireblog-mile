@@ -30,6 +30,7 @@ export const useData = () => {
       console.log("merhaba");
     };
     getUsers();
-  }, [setLoading]);
+    // eslint-disable-next-line
+  }, []);
   return { users };
 };
