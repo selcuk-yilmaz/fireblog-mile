@@ -16,7 +16,7 @@ export default function MenuAppBar() {
   // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const { auth, setAuth } = React.useContext(AuthContext);
+  const { auth } = React.useContext(AuthContext);
   // console.log(auth);
   const navigate = useNavigate();
 
