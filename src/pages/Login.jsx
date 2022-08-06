@@ -19,9 +19,9 @@ const LoginPage = () => {
     login(email, password, navigate);
     console.log("çalıştı");
   };
-    const handleProviderLogin = () => {
-      signUpProvider(navigate);
-    };
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  };
 
   return (
     <div>
@@ -52,6 +52,7 @@ const LoginPage = () => {
             autoFocus
           />
           <TextField
+            type="password"
             label="password"
             name="password"
             id="password"

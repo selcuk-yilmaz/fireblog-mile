@@ -5,7 +5,12 @@
 }
 body {
   font-size: 1.5rem;
-  background: aqua;
+  background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

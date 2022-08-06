@@ -48,6 +48,7 @@ const Newb = () => {
             <img src={blok} alt="blok" />
           </Typography>
           <TextField
+            fullWidth
             type="text"
             autoFocus
             margin="normal"
@@ -60,6 +61,7 @@ const Newb = () => {
             value={image}
           />
           <TextField
+            fullWidth
             type="text"
             margin="normal"
             required
@@ -72,6 +74,7 @@ const Newb = () => {
             value={title}
           />
           <TextField
+            fullWidth
             type="text"
             placeholder="Content"
             multiline

@@ -57,6 +57,7 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
+            type="password"
             label="password"
             name="password"
             id="password"
