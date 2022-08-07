@@ -21,5 +21,5 @@
 
 <h3>How does my project look</h3>
 <br>
-![fireBlog-mile2022-08-07 152115](https://user-images.githubusercontent.com/99830247/183292919-f367eba1-84ec-4942-93c4-9769b0c2cc72.jpg)
+![fireBlog](https://user-images.githubusercontent.com/99830247/183292919-f367eba1-84ec-4942-93c4-9769b0c2cc72.jpg)
 <hr>
