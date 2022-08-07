@@ -1,100 +1,25 @@
+<h3>Live Link of the Project</h3>
+<br>
 [click here for see cite](https://fireblog-mile.vercel.app/)
+<hr>
 
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
+<h3>Hi I’m Selçuk 👋. Welcome to my  fireBlog-mile App  </h3>
+<hr>
 
-# Project-007 : FireBlog App (Milestone)
+<p>The purpose of this project is to make a blog application using the firebase firestore.It is to bring and display the structures combined by the user.</p>
+<hr>
 
+<h3>Libraries and Technologies I use</h3>
+<br>
+ * FireStore
+ * React Router
+ * Context
+ * Async Await
+ * MUI
+ * Crud Events
+<hr>
 
-## Description
-
-Project aims to create a FireBlog App.
-
-## Problem Statement
-
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
-
-## Project Skeleton
-
-```
-007 - FireBlog App (folder)
-|
-|----readme.md         # Given to the students (Definition of the project)
-SOLUTION
-├── public
-│     └── index.html
-├── src
-│    ├── app-router
-│    │       ├── AppRouter.js
-│    │       └── PrivateRouter.js
-│    ├── components
-│    │       ├── BlogCard.js
-│    │       ├── BlogForm.js
-│    │       └── Navbar.js
-│    ├── contexts
-│    │       ├── AuthContext.js
-│    │       └── BlogContext.js
-│    ├── helpers
-│    │       ├── firebase.js
-│    │       └── toastNotify.js
-│    ├── pages
-│    │       ├── About.js
-│    │       ├── Dashboard.js
-│    │       ├── Details.js
-│    │       ├── Login.js
-│    │       ├── NewBlog.js
-│    │       ├── Profile.js
-│    │       ├── Register.js
-│    │       └── UpdateBlog.js
-│    ├── assets.js
-│    │       └── [images]
-│    ├── App.js
-│    ├── App.css
-│    ├── index.js
-│    └── index.css
-├── .env
-├── package.json
-└── yarn.lock
-```
-
-## Expected Outcome
-
-![Project 007 Snapshot](fireblog.gif)
-
-## Objective
-
-Build a Register FireBlog App using ReactJS.
-
-### At the end of the project, following topics are to be covered;
-
-- HTML
-
-- CSS
-
-- JS
-
-- ReactJS
-
-### At the end of the project, students will be able to;
-
-- improve coding skills within HTML & CSS & JS & ReactJS.
-
-- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
-
-## Steps to Solution
-
-- Step 1 : Create React App using `npx create-react-app fireblog-app`
-
-- Step 2 : Use Firebase Auth for authentication and Firebase Realtime Database for CRUD operations.
-
-- Step 3 : You can use css frameworks like Bootstrap, Semantic UI, Material UI.
-
-- Step 4 : You can view sample app on https://eds-fireblog.herokuapp.com/.
-
-- Step 5 : Add project gif to your project and README.md file.
-
-## Notes
-
-- You can add additional functionalities to your app.
-
-**<p align="center">&#9786; Happy Coding &#9997;</p>**
+<h3>How does my project look</h3>
+<br>
+![fireBlog-mile2022-08-07 152115](https://user-images.githubusercontent.com/99830247/183292919-f367eba1-84ec-4942-93c4-9769b0c2cc72.jpg)
+<hr>
