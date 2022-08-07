@@ -17,7 +17,7 @@
 
 ## How does my project look
 
-![fireBlog-mile2022-08-07 152115](https://user-images.githubusercontent.com/99830247/183295310-6a211464-de44-44f1-b539-1251463d0f62.jpg)
+![fireblog_mile](https://user-images.githubusercontent.com/99830247/183303896-7f36ba48-86ae-4902-8a5f-4aca46304e90.gif)
 
 
 
