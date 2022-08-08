@@ -6,7 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Button, CardHeader } from "@mui/material";
+import { Box, Button, CardHeader } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 // import { BlogContext } from "../contexts/BlogContext";
@@ -19,7 +19,7 @@ export default function RecipeReviewCard({ user }) {
   // console.log(user);
 
   return (
-    <Card sx={{ width: "500px", height: "500px" }}>
+    <Card sx={{ width: "500px", height: "475px" }}>
       <CardMedia component="img" height="194" image={imageUrl} alt={title} />
       <CardContent sx={{ backgroundColor: "#E7E6F5" }}>
         <CardHeader title={title} subheader={date} />
@@ -34,11 +34,26 @@ export default function RecipeReviewCard({ user }) {
           {content}
         </Typography>
       </CardContent>
-      <CardContent>
+      <CardContent
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "#DEEFE7",
+        }}
+      >
         <AccountCircleIcon />
-        <span>{email}</span>
+        <Box sx={{ fontFamily: "roboto" }} component="span">
+          {email}
+        </Box>
       </CardContent>
-      <CardActions sx={{ position: "relative" }} disableSpacing>
+      <CardActions
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          position: "relative",
+        }}
+        disableSpacing
+      >
         <IconButton aria-label="add to favorites">
           <FavoriteIcon
           // onClick={() => setFlag(!flag)}
