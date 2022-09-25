@@ -2,7 +2,7 @@
 
 [click here for see cite](https://fireblog-mile.vercel.app/)
 
-## Hi I’m Selçuk 👋. Welcome to my  Weather Condition App 
+## Hi I’m Selçuk 👋. Welcome to my  fireblog-mile App...
 
  The purpose of this project is to make a blog application using the firebase firestore.It is to bring and display the structures combined by the user.
 
