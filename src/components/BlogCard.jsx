@@ -19,7 +19,7 @@ export default function RecipeReviewCard({ user }) {
   // console.log(user);
 
   return (
-    <Card sx={{ width: "300px", height: "475px" }}>
+    <Card sx={{ width: "300px", height: "500px" }}>
       <CardMedia component="img" height="194" image={imageUrl} alt={title} />
       <CardContent sx={{ backgroundColor: "#E7E6F5" }}>
         <CardHeader title={title} subheader={date} />
@@ -65,7 +65,7 @@ export default function RecipeReviewCard({ user }) {
         </IconButton>
         <Button
           onClick={() => navigate("details", { state: user, replace: false })}
-          sx={{ left: "250px" }}
+          sx={{ left: "70px" }}
           variant="outlined"
         >
           Learn More
